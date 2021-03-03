@@ -11,9 +11,10 @@ html, body {
 }
 
 :root {
---headerBgCol: hsl(215, 82%, 56%);
---burgerMenuBgCol: rgba(131, 112, 112);
+--headerBgCol: rgb(51, 127, 235);
+--burgerMenuBgCol: rgb(59, 67, 70);
 --mainMenuCol: rgb(243, 236, 236);
+--onHoverCol: rgb(100, 91, 38);
 }
 
 .wrapper {
@@ -87,7 +88,7 @@ html, body {
 
 /* main menu animation */
 
-.header__link:after {    
+.header__link::after {    
     background: none repeat scroll 0 0 transparent;
     bottom: 2;
     content: "";
@@ -99,7 +100,7 @@ html, body {
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
   }
-  .header__link:hover:after { 
+  .header__link:hover::after { 
     width: 100%; 
     left: 100; 
   }
@@ -162,7 +163,7 @@ html, body {
 }
 
 .fullscreen__link:hover {
-    background-color: var(--burgerMenuBgCol);
+    background-color: var(--onHoverCol);
     color: var(--mainMenuCol);
 }
 .content {
@@ -171,7 +172,7 @@ html, body {
 /* Form */
 
 .form__wrapper {
-    background-color: rgb(61, 42, 42);
+    background-color: var(--burgerMenuBgCol);
     max-width: 100%;
 }
 .form__container {
@@ -181,7 +182,27 @@ html, body {
     padding: 30px 0px;
 }
 .form__body {
+    position: relative;
 }
+
+.form__body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('./img/rings.svg') center / 100px no-repeat;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease 0s;
+}
+.form__body._sending::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* _sending */
 .form__title {
     font-size: 40px;
     font-weight: 600;
@@ -196,19 +217,31 @@ html, body {
     margin: 0px 0px 10px 0px;
 }
 .form__input {
+    outline: none;
     height: 40px;
     padding: 0px 20px;
     width: 100%;
     font-size: 18px;
+    transition: all 0.3s ease 0s;
+}
+.form__input._error {
+    box-shadow: 0 0 15px red;
+}
+.form__input:focus, .select:focus {
+    box-shadow: 0 0 15px var(--mainMenuCol);
 }
 .select {
+    outline: none;
     height: 40px;
     width: 100%;
     font-size: 18px;
     padding: 0px 20px;
+    transition: all 0.3s ease 0s;
 }
 .checkbox {
-
+}
+.checkbox._error .checkbox__label::before {
+    box-shadow: 0 0 15px red;
 }
 .checkbox__input {
     display: none;
@@ -225,7 +258,7 @@ html, body {
     align-items: center;
     width: 100%;
 }
-.checkbox__label:before {
+.checkbox__label::before {
     content: '';
     align-self: flex-start;
     flex: 0 0 24px;
@@ -233,7 +266,7 @@ html, body {
     background-color: #fff;
     margin: 0px 10px 0px 0px;
 }
-.checkbox__label:after {
+.checkbox__label::after {
     content: '';
     transition: transform 0.3s ease 0s;
     width: 16px;
@@ -253,6 +286,14 @@ html, body {
     justify-content: center;
     align-items: center;
     min-height: 50px;
+}
+.error_message {
+    visibility: hidden;
+}
+.error_message._error {
+    visibility: visible;
+    margin-top: 10px;
+    color: red;
 
 }
 /* formEnd */
@@ -344,5 +385,53 @@ html, body {
     }
     .header__list li {
         margin: 20px 0px 40px 0px;
+    }
+
+    /*Form Worker*/
+    .form__container {
+        max-width: 300px;
+        padding: 20px 0px;       
+    }
+    .form__title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .form__item {
+        margin: 0px 0px 10px 0px;
+    }
+    .form__label {
+        font-size: 14px;
+    }
+    .form__input {
+        height: 25px;
+        padding: 0px 10px;
+        font-size: 14px;
+    }
+    .form__input._error {
+        box-shadow: 0 0 10px red;
+    }
+    .form__input:focus, .select:focus {
+        box-shadow: 0 0 10px var(--mainMenuCol);
+    }
+    .select {
+        height: 25px;
+        padding: 0px 10px;
+        font-size: 14px;
+    }
+    .checkbox._error .checkbox__label::before {
+        box-shadow: 0 0 10px red;
+    }
+    .checkbox__label::before {
+        height: 18px;
+        flex: 0 0 18px;       
+    }
+    .checkbox__label::after {
+        width: 12px;
+        height: 12px;
+        top: 3px;
+        left: 3px;
+    }
+    .checkbox__label {
+        font-size: 14px;
     }
 }
