@@ -362,7 +362,7 @@ html, body {
     align-items: center;
     flex-wrap: wrap;
     margin: 0px auto;
-    font-size: calc(6px + 6 * (100vw / 1000));
+    font-size: 1rem;
 }
 .contact {
     flex: 0 0 250px;
@@ -461,6 +461,9 @@ html, body {
         padding: 0px 20px;
         margin-bottom: 40px;
         font-size: 1rem;
+    }
+    .content__terms._title {
+        font-size: 0.75rem;
     }
     /*Form Worker*/
     .form__container {
