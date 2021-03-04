@@ -10,6 +10,15 @@ $(document).ready(function(){
         $('.header__burger, .header__menu').removeClass('active');
         $('body').removeClass('lock');
     }); 
+    
+    //Scroll Function
+    $("a.header__link").click(function(){
+        $("html, body").animate({
+            scrollTop: $($(this).attr("href")).offset().top + "px"
+        }, {
+         duration: 1000   
+        });
+    });
 
     // Form worker
     
