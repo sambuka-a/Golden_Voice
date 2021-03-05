@@ -67,8 +67,6 @@ html, body {
 .header__burger {
     display: none;
 }
-.header__menu {
-}
 .header__list {
     display: flex;
     position: relative;

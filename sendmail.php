@@ -13,7 +13,7 @@
     //Sender 
     $mail->setFrom('konkurs@slowiany.org', 'Konkurs wokalny');
     //Recepient
-    $mail->addAddress('slowiany@gmail.com');
+    $mail->addAddress('thegoldenvoicekonkurs@gmail.com');
     //Mail Subject
     $mail->Subject = 'Konkurs Wokalny Zgloszenie';
 

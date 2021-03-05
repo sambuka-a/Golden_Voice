@@ -20,8 +20,7 @@ $(document).ready(function(){
         });
     });
 
-    // Form worker
-    
+    // Form worker    
     const form = document.getElementById('form');
     const messageError = document.getElementById('message__error');
     form.addEventListener('submit', formSend);
@@ -31,6 +30,7 @@ $(document).ready(function(){
 
         let error = formValidate(form);
         let formData = new FormData(form);
+        //let formData = new FormData(document.getElementById('form'));
 
         if (error === 0) {
             form.classList.add('_sending');
@@ -44,13 +44,13 @@ $(document).ready(function(){
                 alert(result.message);
                 form.reset();
                 form.classList.remove('_sending');
+            
             } else {
                 alert ('Error!');
                 form.classList.remove('_sending');
             }
-            
         } else {
-            //alert('Please fill all inputs'); Add additional error message
+            //alert('Please fill all inputs'); //Add additional error message
             let erMes = document.querySelector('#message');
             if (erMes.classList.contains('_error')) {
                 erMes.classList.remove('_error');
