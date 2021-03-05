@@ -12,11 +12,11 @@ $(document).ready(function(){
     }); 
     
     //Scroll Function
-    $("a.header__link").click(function(){
+    $("a.header__link, a.fullscreen__link").click(function(){
         $("html, body").animate({
             scrollTop: $($(this).attr("href")).offset().top + "px"
         }, {
-         duration: 1000   
+         duration: 500   
         });
     });
 
