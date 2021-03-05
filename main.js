@@ -22,7 +22,6 @@ $(document).ready(function(){
 
     // Form worker    
     const form = document.getElementById('form');
-    const messageError = document.getElementById('message__error');
     form.addEventListener('submit', formSend);
 
     async function formSend(e) {
@@ -30,7 +29,6 @@ $(document).ready(function(){
 
         let error = formValidate(form);
         let formData = new FormData(form);
-        //let formData = new FormData(document.getElementById('form'));
 
         if (error === 0) {
             form.classList.add('_sending');
@@ -51,12 +49,6 @@ $(document).ready(function(){
             }
         } else {
             //alert('Please fill all inputs'); //Add additional error message
-            let erMes = document.querySelector('#message');
-            if (erMes.classList.contains('_error')) {
-                erMes.classList.remove('_error');
-            } else {
-                erMes.classList.add('_error');
-            }
         }
     }
 

@@ -11,10 +11,11 @@ html, body {
 }
 
 :root {
---headerBgCol: hsl(209, 36%, 35%);
---burgerMenuBgCol: hsl(209, 61%, 75%);
+--headerBgCol: hsl(0, 0%, 27%);
+--burgerMenuBgCol: hsl(0, 0%, 19%);
 --mainMenuCol: rgb(243, 236, 236);
 --onHoverCol: hsl(29, 71%, 58%);
+--contentBgCol: hsl(42, 12%, 79%);
 }
 
 .wrapper {
@@ -133,10 +134,12 @@ html, body {
 }
 .fullscreen__title {
     font-family: 'Cinzel', serif;
-    font-size: calc(16px + 25 * (100vw / 1000));
-    background: rgba(0, 0, 0, 0.5);
+    font-size: calc(16px + 30 * (100vw / 1000));
+    background: -webkit-linear-gradient(#333, #eee);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: white;
-    padding: 0px 10px;
+    padding: 0px;
     margin: 0px 20px 20px 20px;
     text-transform: uppercase;
     
@@ -144,9 +147,8 @@ html, body {
 }
 .fullscreen__text {
     font-size: calc(8px + 6 * (100vw / 1000));
-    padding: 0px 10px;
+    padding: 0px;
     margin: 0px 20px 20px 20px;
-    background: rgba(0, 0, 0, 0.6);
     color: var(--burgerMenuBgCol);
 }
 
@@ -170,7 +172,7 @@ html, body {
 }
 /* Terms */
 .content {
-    background-color: rgba(245, 245, 245, 0.5);
+    background-color: var(--contentBgCol);
     padding-top: 80px;
     line-height: 2;
 }
@@ -326,7 +328,7 @@ html, body {
     transform: scale(0);
 }
 .checkbox__label a {
-    color: var(--headerBgCol);
+    color: var(--onHoverCol);
 }
 .fullscreen__link.form {
     display: flex;
@@ -334,15 +336,6 @@ html, body {
     justify-content: center;
     align-items: center;
     min-height: 30px;
-}
-.error_message {
-    visibility: hidden;
-}
-.error_message._error {
-    visibility: visible;
-    margin-top: 10px;
-    color: red;
-
 }
 /* formEnd */
 
