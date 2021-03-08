@@ -13,7 +13,7 @@ html, body {
 :root {
 --headerBgCol: hsl(0, 0%, 27%);
 --burgerMenuBgCol: hsl(0, 0%, 19%);
---mainMenuCol: rgb(243, 236, 236);
+--mainMenuCol: hsl(0, 23%, 94%);
 --onHoverCol: hsl(29, 71%, 58%);
 --contentBgCol: hsl(42, 12%, 79%);
 }
@@ -136,6 +136,7 @@ html, body {
     font-family: 'Cinzel', serif;
     font-size: calc(16px + 30 * (100vw / 1000));
     background: -webkit-linear-gradient(#333, #eee);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: white;
@@ -194,6 +195,9 @@ html, body {
 }
 .content__terms h3, h4 {
     text-transform: uppercase;
+}
+.content__terms h3, h4 span {
+    text-transform: none;
 }
 ._host,
 ._company,
@@ -387,16 +391,24 @@ html, body {
 .credits {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
 }
 .copyright {
-    font-size: 0.75rem;
+    display: flex;
+    align-self: flex-end;
+    font-size: 0.875rem;
     color: var(--mainMenuCol);
 }
 .developer {
     font-size: 0.75rem;
 }
+.developer img {
+    height: 32px;
+    width: 32px;
+}
+
 @media (max-width:576px) {
     body.lock {
         overflow: hidden;
