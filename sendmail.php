@@ -4,7 +4,7 @@
 
     require 'phpmailer/src/Exception.php';
     require 'phpmailer/src/PHPMailer.php';
-
+    
     $mail = new PHPMailer(true);
     $mail->CharSet = 'UTF-8';
     $mail->setLanguage('en', 'phpmailer/language/');
@@ -18,13 +18,14 @@
     $mail->Subject = 'Konkurs Wokalny Zgloszenie';
 
     //Category
+    
     $category = "I (6-9 Lat)";
-    if ($_POST['category'] == "II (10-12 Lat)") {
+    if ($_POST['category'] == "II") {
         $category = "II (10-12 Lat)";
-    } else if ($_POST['category'] == "III (13-15 Lat)") {
+    } else if ($_POST['category'] == "III") {
         $category = "III (13-15 Lat)";
-    } else if ($_POST['category'] == "IV (16-18 Lat)") {
-        $category = "IV (16-18 Lat)";
+    } else if ($_POST['category'] == "IV") {
+        $category = "IV";
     } else {
         $category = "V (19 + Lat)";
     }
@@ -56,10 +57,12 @@
 
     //Message send
     if (!$mail->send()){
-        $message = 'Message sent!';
+        $message = 'Error';
+    } else {
+        $message = 'Message Sent';
     }
-    $response = ['message' => $message];
 
+    $response = ['message' => $message];
     header('Content-type: application/json');
     echo json_encode($response);
 ?>

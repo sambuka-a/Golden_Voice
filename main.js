@@ -1,7 +1,7 @@
 "use strict"
 
 $(document).ready(function(){
-    $('.header__burger').click(function(event) {
+    $('.header__burger').click(function(_event) {
         $('.header__burger , .header__menu').toggleClass('active');
         $('body').toggleClass('lock');
     });
@@ -33,23 +33,32 @@ $(document).ready(function(){
         if (error === 0) {
             form.classList.add('_sending');
             
-            let response = await fetch('sendmail.php', {
-                method: 'POST',
-                body: formData
-            });
-            if (response.ok) {
-                let result = await response.json();
-                alert(result.message);
+        //    let response = await fetch('sendmail.php', {
+        //        method: 'POST',
+        //        body: formData
+        //    });
+        //    if (response.ok) {
+        //        let result = await response.json();
+        //        alert(result.message);
+                let success = document.querySelector('.success');
+                success.classList.add('_sent');
+                form.classList.add('_dark');
                 form.reset();
                 form.classList.remove('_sending');
+                setTimeout(function() {
+                    success.classList.remove('_sent');
+                    form.classList.remove('_dark');
+                }, 5000);
             
             } else {
-                alert ('Error!');
+                let error = document.querySelector('.error');
+                error.classList.add('_error');
+                //alert ('Error!');
                 form.classList.remove('_sending');
             }
-        } else {
+        //} else {
             //alert('Please fill all inputs'); //Add additional error message
-        }
+        //}
     }
 
     function formValidate(form) {

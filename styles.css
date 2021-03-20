@@ -238,8 +238,11 @@ html, body {
 }
 .form__body {
     position: relative;
+    padding-bottom: 20px;
 }
-
+.form__body._dark {
+    opacity: 0.3;
+}
 .form__body::after {
     content: '';
     position: absolute;
@@ -255,6 +258,21 @@ html, body {
 .form__body._sending::after {
     opacity: 1;
     visibility: visible;
+}
+
+.success {
+    visibility: hidden;
+}
+.success._sent {
+    visibility: visible;
+    color: var(--onHoverCol);
+}
+.error {
+    visibility: hidden;
+}
+.error._error {
+    visibility: visible;
+    color: red;
 }
 
 /* _sending */
